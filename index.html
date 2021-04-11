@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API group 4</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>incident impact prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="open_by" placeholder="open_by" required="required" />
+        <input type="text" name="loc" placeholder="loc" required="required" />
+        <input type="text" name="categoryy" placeholder="categoryy" required="required" />
+        <input type="text" name="caller_id" placeholder="caller_id" required="required" />
+        <input type="text" name="subbcategory" placeholder="subbcategory" required="required" />
+        <input type="text" name="symptom" placeholder="symptom" required="required" />
+        <input type="text" name="createdby" placeholder="createdby" required="required" />
+        <input type="text" name="assigned_to" placeholder="assigned_to" required="required" />
+        <input type="text" name="resolved_by" placeholder="resolved_by" required="required" />
+        <input type="text" name="opened_at_day" placeholder="opened_at_day" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
